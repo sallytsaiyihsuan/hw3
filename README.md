@@ -30,7 +30,7 @@
 
 ## 作業說明
 
-作業相關要求寫在作業檔案中： [`index.Rmd`](./index.Rmd)。
+作業相關要求寫在作業檔案中：[`index.Rmd`](./index.Rmd)。輸出的 HTML 版本見：<https://rlads2021.github.io/hw3/>。
 
 
 ## 尋求幫助

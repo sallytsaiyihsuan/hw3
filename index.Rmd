@@ -1,5 +1,5 @@
 ---
-author: "未命名 B01203004 一般系"
+author: "蔡宜軒 B06102126 外文系"
 title: "HW 3: Base R (I)"
 date: |
   | 2021-03-11
@@ -33,8 +33,7 @@ knitr::opts_chunk$set(echo = TRUE,comment = '#>',error=TRUE, results = 'hold', o
 
 ```{r}
 c2f <- function(celsius) {
-  # write your code here
-  fahrenheit = celsius
+  fahrenheit <- celsius*(9/5)+32
   return(fahrenheit)
 }
 # 請勿更動此行之下的程式碼
@@ -80,8 +79,11 @@ concat3(p1 = 3, p2 = 2, p3 = 1)
 
 ```{r}
 # Modify the code below
-concat3(1, 3, 2)
+concat3 <- function(p1,p2,p3) {
+  return(paste(p1,1,2))
+}
 
+concat3(1,p1 = 3,2)
 # should print out:
 #> [1] "3 1 2"
 ```
@@ -99,7 +101,7 @@ students <- c(1, 5, 4, 1, 4, 5, 1, 3, 2, 4, 5, 5, 3, 4, 2, 1, 5, 4, 2, 2, 1, 4, 
 
 ```{r}
 # 高年級人數 (10 分)
-# Write your code here
+sum(students==4)+sum(students==5)
 
 # Should print out
 #> [1] 14
@@ -107,7 +109,9 @@ students <- c(1, 5, 4, 1, 4, 5, 1, 3, 2, 4, 5, 5, 3, 4, 2, 1, 5, 4, 2, 2, 1, 4, 
 
 ```{r}
 # 高年級比例  (10 分)
-# Write your code here
+a <- sum(students==4)+sum(students==5)
+b <- sum(students==1)+sum(students==2)+sum(students==3)+sum(students==4)+sum(students==5)
+print(a/b)
 
 # Should print out
 #> [1] 0.4
@@ -126,7 +130,13 @@ Vector II (20 分)
 ```{r}
 # Hint: 注意資料類型與 Coercion (可能會用到 as.character())
 # Write your code here
-
+students <- c(1, 5, 4, 1, 4, 5, 1, 3, 2, 4, 5, 5, 3, 4, 2, 1, 5, 4, 2, 2, 1, 4, 3, 5, 2, 4, 1, 3, 3, 4, 3, 2, 1, 2, 2)
+students[students == 1] <-"Freshman"
+students[students == 2] <-"Sophomore"
+students[students == 3] <-"Junior"
+students[students == 4] <-"Senior"
+students[students == 5] <-"Senior"
+students
 
 # DO NOT modify the code below
 students
@@ -163,13 +173,21 @@ students2 <- c(2, 2, 3, 1, 4, 3, 1, 4, 1, 3, 1, 2, 1, 4, 3, 1, 4, 4, 1, 3)
 ```{r}
 grade_percentage <- function(grades, students) {
   # Modify the code below
-  if () {
-    
+  if (typeof(grades)== "chracter") {
+  "Freshman" <- sum(students2[students2 == 1])
+  "Sophomore" <-sum(students2[students2 == 2])
+  "Junior" <- sum(students2[students2 == 3])
+  "Senior" <- sum(students2[students2 == 4])
   }
   
-  precentage <- mean()
-  return(precentage)
-}
+  percentage <- length(students2[students2 == grades])/length(students2)
+  
+  
+  return(percentage) 
+  }
+  
+ 
+
 
 # DO NOT modify the code below
 grade_percentage(grades = 3, students = students2)

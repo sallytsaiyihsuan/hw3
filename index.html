@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="未命名 B01203004 一般系" />
+<meta name="author" content="蔡宜軒 B06102126 外文系" />
 
 
 <title>HW 3: Base R (I)</title>
@@ -57,6 +57,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -142,7 +143,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,%2Ermdcaution%2C%20%2Ermdimportant%2C%20%2Ermdnote%2C%20%2Ermdtip%2C%20%2Ermdwarning%20%7B%0Apadding%3A%201em%201em%201em%204em%3B%0Amargin%2Dbottom%3A%2010px%3B%0Abackground%3A%20%23f5f5f5%205px%20center%2F3em%20no%2Drepeat%3B%0A%7D%0Ap%2Ecaption%20%7B%0Acolor%3A%20%23777%3B%0Amargin%2Dtop%3A%2010px%3B%0A%7D%0Ap%20code%20%7B%0Awhite%2Dspace%3A%20inherit%3B%0A%7D%0Ap%2Eflushright%20%7B%0Atext%2Dalign%3A%20right%3B%0A%7D%0Ablockquote%20%3E%20p%3Alast%2Dchild%20%7B%0Atext%2Dalign%3A%20right%3B%0A%7D%0Ablockquote%20%3E%20p%3Afirst%2Dchild%20%7B%0Atext%2Dalign%3A%20inherit%3B%0A%7D%0A%2Eheader%2Dsection%2Dnumber%20%7B%0Apadding%2Dright%3A%20%2E2em%3B%0Afont%2Dweight%3A%20500%3B%0A%7D%0A%2Elevel1%20%2Eheader%2Dsection%2Dnumber%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Aborder%2Dbottom%3A%203px%20solid%3B%0A%7D%0A%2Elevel1%20h1%20%7B%0Aborder%2Dbottom%3A%201px%20solid%3B%0A%7D%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%20%7B%0Apadding%2Dtop%3A%200%2E8em%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Ah1%2Etitle%20%7B%0Afont%2Dsize%3A%2045px%3B%0Afont%2Dweight%3A%20700%3B%0A%7D%0A%2Esmallcaps%20%7B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0A%7D%0A%2Ebook%20%2Ebook%2Dbody%20%2Epage%2Dwrapper%20%2Epage%2Dinner%20section%2Enormal%20strong%20%7B%0Afont%2Dweight%3A%20600%3B%0A%7D%0Ali%2C%20p%20%7B%0Aline%2Dheight%3A%201%2E6%3B%0Afont%2Dsize%3A%2016px%3B%0Apadding%2Dtop%3A%200%2E5em%3B%0A%7D%0Ali%20%7B%0Apadding%2Dtop%3A%200%2E25em%3B%0A%7D%0Ah4%2Edate%2C%20h4%2Eauthor%20%7B%0Apadding%2Dtop%3A%200%2E0em%3B%0Afont%2Dweight%3A%20normal%3B%0Afont%2Dsize%3A%2016px%3B%0A%7D%0A%2EsourceCode%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0Adiv%2EsourceCode%20%2B%20pre%20%7B%0Amax%2Dheight%3A%20350px%3B%0Aoverflow%2Dy%3A%20auto%3B%0A%7D%0A%2Ealert%2Dsuccess%20%7B%0Acolor%3A%20rgb%280%2C%20100%2C%200%29%3B%0A%7D%0A%2Ehint%3A%3Abefore%20%7B%0Acontent%3A%20%22Hint%22%3B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%201%2E3em%3B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D" type="text/css" />
+<link rel="stylesheet" href="data:text/css,%2Ermdcaution%2C%20%2Ermdimportant%2C%20%2Ermdnote%2C%20%2Ermdtip%2C%20%2Ermdwarning%20%7Bpadding%3A%201em%201em%201em%204em%3Bmargin%2Dbottom%3A%2010px%3Bbackground%3A%20%23f5f5f5%205px%20center%2F3em%20no%2Drepeat%3B%7Dp%2Ecaption%20%7Bcolor%3A%20%23777%3Bmargin%2Dtop%3A%2010px%3B%7Dp%20code%20%7Bwhite%2Dspace%3A%20inherit%3B%7Dp%2Eflushright%20%7Btext%2Dalign%3A%20right%3B%7Dblockquote%20%3E%20p%3Alast%2Dchild%20%7Btext%2Dalign%3A%20right%3B%7Dblockquote%20%3E%20p%3Afirst%2Dchild%20%7Btext%2Dalign%3A%20inherit%3B%7D%2Eheader%2Dsection%2Dnumber%20%7Bpadding%2Dright%3A%20%2E2em%3Bfont%2Dweight%3A%20500%3B%7D%2Elevel1%20%2Eheader%2Dsection%2Dnumber%20%7Bdisplay%3A%20inline%2Dblock%3Bborder%2Dbottom%3A%203px%20solid%3B%7D%2Elevel1%20h1%20%7Bborder%2Dbottom%3A%201px%20solid%3B%7Dh1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%20%7Bpadding%2Dtop%3A%200%2E8em%3Bfont%2Dweight%3A%20bold%3B%7Dh1%2Etitle%20%7Bfont%2Dsize%3A%2045px%3Bfont%2Dweight%3A%20700%3B%7D%2Esmallcaps%20%7Bfont%2Dvariant%3A%20small%2Dcaps%3B%7D%2Ebook%20%2Ebook%2Dbody%20%2Epage%2Dwrapper%20%2Epage%2Dinner%20section%2Enormal%20strong%20%7Bfont%2Dweight%3A%20600%3B%7Dli%2C%20p%20%7Bline%2Dheight%3A%201%2E6%3Bfont%2Dsize%3A%2016px%3Bpadding%2Dtop%3A%200%2E5em%3B%7Dli%20%7Bpadding%2Dtop%3A%200%2E25em%3B%7Dh4%2Edate%2C%20h4%2Eauthor%20%7Bpadding%2Dtop%3A%200%2E0em%3Bfont%2Dweight%3A%20normal%3Bfont%2Dsize%3A%2016px%3B%7D%2EsourceCode%20%7Boverflow%3A%20auto%3B%7Ddiv%2EsourceCode%20%2B%20pre%20%7Bmax%2Dheight%3A%20350px%3Boverflow%2Dy%3A%20auto%3B%7D%2Ealert%2Dsuccess%20%7Bcolor%3A%20rgb%280%2C%20100%2C%200%29%3B%7D%2Ehint%3A%3Abefore%20%7Bcontent%3A%20%22Hint%22%3Bfont%2Dweight%3A%20bold%3Bfont%2Dsize%3A%201%2E3em%3Btext%2Ddecoration%3A%20underline%3B%7D" type="text/css" />
 
 
 
@@ -329,7 +330,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">HW 3: Base R (I)</h1>
-<h4 class="author">未命名 B01203004 一般系</h4>
+<h4 class="author">蔡宜軒 B06102126 外文系</h4>
 <h4 class="date"><div class="line-block">2021-03-11<br />
 <br />
 <a href="./index.Rmd" download="hw3.Rmd">Rmd Source (for TAs)</a></div></h4>
@@ -344,21 +345,20 @@ div.tocify {
 <p>已知 <span class="math display">\[攝氏 = \frac{5}{9} \times (華氏 - 32)\]</span></p>
 <p>請撰寫一個「攝氏轉華氏」的函數 <code>c2f()</code>，使其能接受一個「攝氏溫標」的輸入，並輸出此溫度的「華氏溫標」。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>c2f <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># write your code here</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  fahrenheit <span class="ot">=</span> celsius</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(fahrenheit)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 請勿更動此行之下的程式碼</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c2f</span>(<span class="dv">100</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">c2f</span>(<span class="dv">0</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">c2f</span>(<span class="fl">37.5</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># should print out:</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 212</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 32</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 99.5</span></span></code></pre></div>
-<pre><code>#&gt; [1] 100
-#&gt; [1] 0
-#&gt; [1] 37.5</code></pre>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> celsius<span class="sc">*</span>(<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>)<span class="sc">+</span><span class="dv">32</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(fahrenheit)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 請勿更動此行之下的程式碼</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c2f</span>(<span class="dv">100</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c2f</span>(<span class="dv">0</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">c2f</span>(<span class="fl">37.5</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># should print out:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 212</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 32</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 99.5</span></span></code></pre></div>
+<pre><code>#&gt; [1] 212
+#&gt; [1] 32
+#&gt; [1] 99.5</code></pre>
 </div>
 <div id="function-arguments-15-分" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Function Arguments (15 分)</h2>
@@ -381,26 +381,33 @@ div.tocify {
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">concat3</span>(<span class="dv">1</span>, <span class="at">p3 =</span> <span class="dv">3</span>, <span class="dv">2</span>)</span></code></pre></div></li>
 </ol>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the code below</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">concat3</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># should print out:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;3 1 2&quot;</span></span></code></pre></div>
-<pre><code>#&gt; [1] &quot;1 3 2&quot;</code></pre>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>concat3 <span class="ot">&lt;-</span> <span class="cf">function</span>(p1,p2,p3) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">paste</span>(p1,<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">concat3</span>(<span class="dv">1</span>,<span class="at">p1 =</span> <span class="dv">3</span>,<span class="dv">2</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># should print out:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;3 1 2&quot;</span></span></code></pre></div>
+<pre><code>#&gt; [1] &quot;3 1 2&quot;</code></pre>
 </div>
 <div id="vector-i-20-分" class="section level2" number="1.3">
 <h2 number="1.3"><span class="header-section-number">1.3</span> Vector I (20 分)</h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span></code></pre></div>
 <p>上方的 <code>students</code> 儲存著 35 筆學生的年級 (1 至 5 年級) 資料。 請計算出高年級 (4 &amp; 5 年級) 學生的<strong>人數</strong>與<strong>比例</strong>：</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 高年級人數 (10 分)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your code here</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">4</span>)<span class="sc">+</span><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">5</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 14</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 高年級比例  (10 分)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your code here</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4</span></span></code></pre></div>
+<pre><code>#&gt; [1] 14</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 高年級比例  (10 分)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">4</span>)<span class="sc">+</span><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">5</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">1</span>)<span class="sc">+</span><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">2</span>)<span class="sc">+</span><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">3</span>)<span class="sc">+</span><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">4</span>)<span class="sc">+</span><span class="fu">sum</span>(students<span class="sc">==</span><span class="dv">5</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(a<span class="sc">/</span>b)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.4</span></span></code></pre></div>
+<pre><code>#&gt; [1] 0.4</code></pre>
 </div>
 <div id="vector-ii-20-分" class="section level2" number="1.4">
 <h2 number="1.4"><span class="header-section-number">1.4</span> Vector II (20 分)</h2>
@@ -411,25 +418,42 @@ div.tocify {
 <li>Junior: 3 年級</li>
 <li>Senior: 4 或 4 年級以上</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: 注意資料類型與 Coercion (可能會用到 as.character())</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your code here</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT modify the code below</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>students</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># should print out:</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   </span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Senior&quot;    &quot;Senior&quot;   </span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Junior&quot;    &quot;Senior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   </span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;Sophomore&quot; &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   </span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   </span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Sophomore&quot; &quot;Sophomore&quot;</span></span></code></pre></div>
-<pre><code>#&gt;  [1] 1 5 4 1 4 5 1 3 2 4 5 5 3 4 2 1 5 4 2 2 1 4 3 5 2 4 1 3 3 4 3 2 1 2 2</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: 注意資料類型與 Coercion (可能會用到 as.character())</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write your code here</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>students[students <span class="sc">==</span> <span class="dv">1</span>] <span class="ot">&lt;-</span><span class="st">&quot;Freshman&quot;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>students[students <span class="sc">==</span> <span class="dv">2</span>] <span class="ot">&lt;-</span><span class="st">&quot;Sophomore&quot;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>students[students <span class="sc">==</span> <span class="dv">3</span>] <span class="ot">&lt;-</span><span class="st">&quot;Junior&quot;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>students[students <span class="sc">==</span> <span class="dv">4</span>] <span class="ot">&lt;-</span><span class="st">&quot;Senior&quot;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>students[students <span class="sc">==</span> <span class="dv">5</span>] <span class="ot">&lt;-</span><span class="st">&quot;Senior&quot;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>students</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT modify the code below</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>students</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># should print out:</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   </span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Senior&quot;    &quot;Senior&quot;   </span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Junior&quot;    &quot;Senior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   </span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;Sophomore&quot; &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   </span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [25] &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   </span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [31] &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Sophomore&quot; &quot;Sophomore&quot;</span></span></code></pre></div>
+<pre><code>#&gt;  [1] &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   
+#&gt;  [7] &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Senior&quot;    &quot;Senior&quot;   
+#&gt; [13] &quot;Junior&quot;    &quot;Senior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   
+#&gt; [19] &quot;Sophomore&quot; &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   
+#&gt; [25] &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   
+#&gt; [31] &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Sophomore&quot; &quot;Sophomore&quot;
+#&gt;  [1] &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   
+#&gt;  [7] &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Senior&quot;    &quot;Senior&quot;   
+#&gt; [13] &quot;Junior&quot;    &quot;Senior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Senior&quot;   
+#&gt; [19] &quot;Sophomore&quot; &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Senior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   
+#&gt; [25] &quot;Sophomore&quot; &quot;Senior&quot;    &quot;Freshman&quot;  &quot;Junior&quot;    &quot;Junior&quot;    &quot;Senior&quot;   
+#&gt; [31] &quot;Junior&quot;    &quot;Sophomore&quot; &quot;Freshman&quot;  &quot;Sophomore&quot; &quot;Sophomore&quot;</code></pre>
 </div>
 <div id="write-a-function-30-分" class="section level2" number="1.5">
 <h2 number="1.5"><span class="header-section-number">1.5</span> Write a Function (30 分)</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT Modify the code here</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>students2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT Modify the code here</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>students2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
 <p>此題與前面的 Vector I 一樣會用到學生的年級資料。與前面不同的是，<code>students2</code> 裡的年級只有 1 至 4 年級。</p>
 <p>在這題，同學需要撰寫一個函數 <code>grade_precentage()</code>，用來計算 <code>students2</code> 裡面各年級的比例。這個函數有兩個參數：</p>
 <ul>
@@ -438,30 +462,38 @@ div.tocify {
 </ul>
 <p>這個函數特別的地方在於它能<strong>容許不同資料類型的輸入</strong>：不管使用者在 <code>grades</code> 裡輸入的是數值 (1 至 4) 或是英文 (Freshman, Sophomore, Junior, Senior)，它都能算出正確的年級比例資訊。</p>
 <p>(Hint: 這題可能會用到 <code>is.character()</code> 與 <code>as.character()</code> 。 他們的功能分別是<strong>確認資料類型是否為字串</strong>以及<strong>將其它資料類型轉換成字串</strong>。詳見說明文件)</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>grade_percentage <span class="ot">&lt;-</span> <span class="cf">function</span>(grades, students) {</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the code below</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> () {</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  precentage <span class="ot">&lt;-</span> <span class="fu">mean</span>()</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(precentage)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT modify the code below</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="dv">3</span>, <span class="at">students =</span> students2)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="st">&quot;Junior&quot;</span>, <span class="at">students =</span> students2)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">students =</span> students2)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="fu">c</span>(<span class="st">&quot;Junior&quot;</span>, <span class="st">&quot;Senior&quot;</span>), <span class="at">students =</span> students2)</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.25</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.25</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span></code></pre></div>
-<pre><code>#&gt; Error: &lt;text&gt;:3:7: unexpected &#39;)&#39;
-#&gt; 2:   # Modify the code below
-#&gt; 3:   if ()
-#&gt;          ^</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>grade_percentage <span class="ot">&lt;-</span> <span class="cf">function</span>(grades, students) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modify the code below</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">typeof</span>(grades)<span class="sc">==</span> <span class="st">&quot;chracter&quot;</span>) {</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Freshman&quot;</span> <span class="ot">&lt;-</span> <span class="fu">sum</span>(students2[students2 <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Sophomore&quot;</span> <span class="ot">&lt;-</span><span class="fu">sum</span>(students2[students2 <span class="sc">==</span> <span class="dv">2</span>])</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Junior&quot;</span> <span class="ot">&lt;-</span> <span class="fu">sum</span>(students2[students2 <span class="sc">==</span> <span class="dv">3</span>])</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Senior&quot;</span> <span class="ot">&lt;-</span> <span class="fu">sum</span>(students2[students2 <span class="sc">==</span> <span class="dv">4</span>])</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  percentage <span class="ot">&lt;-</span> <span class="fu">length</span>(students2[students2 <span class="sc">==</span> grades])<span class="sc">/</span><span class="fu">length</span>(students2)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(percentage) </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT modify the code below</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="dv">3</span>, <span class="at">students =</span> students2)</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="st">&quot;Junior&quot;</span>, <span class="at">students =</span> students2)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">students =</span> students2)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_percentage</span>(<span class="at">grades =</span> <span class="fu">c</span>(<span class="st">&quot;Junior&quot;</span>, <span class="st">&quot;Senior&quot;</span>), <span class="at">students =</span> students2)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.25</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.25</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span></code></pre></div>
+<pre><code>#&gt; [1] 0.25
+#&gt; [1] 0
+#&gt; [1] 0.25
+#&gt; [1] 0</code></pre>
 </div>
 </div>
 <div id="進階選答題-共-20-分" class="section level1" number="2">
@@ -487,24 +519,24 @@ div.tocify {
 <li>這題可能會用到 <code>strsplit()</code> 來將輸入的密碼拆成一個個字元，例如，將 <code>&quot;abc123&quot;</code> 變成 <code>&quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot;</code>。注意：<code>strsplit()</code> 所回傳的資料結構是尚未教過的 <code>list</code>。</li>
 <li>這題可能會用到邏輯運算子 <code>%in%</code> 以及布林運算子 <code>any()</code></li>
 </ol>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>check_password <span class="ot">&lt;-</span> <span class="cf">function</span>(pw){</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Write your code here</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT modify the code below</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLads2019&quot;</span>)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rlads2019&quot;</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;RLADS2019&quot;</span>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLadsrLads&quot;</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLads 2019&quot;</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLad2&quot;</span>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Valid Password&quot;</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>check_password <span class="ot">&lt;-</span> <span class="cf">function</span>(pw){</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Write your code here</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># DO NOT modify the code below</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLads2019&quot;</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rlads2019&quot;</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;RLADS2019&quot;</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLadsrLads&quot;</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLads 2019&quot;</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">check_password</span>(<span class="st">&quot;rLad2&quot;</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Should print out</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Valid Password&quot;</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;INVALID&quot;</span></span></code></pre></div>
 <pre><code>#&gt; NULL
 #&gt; NULL
 #&gt; NULL
